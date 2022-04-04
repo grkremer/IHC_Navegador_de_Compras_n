@@ -12,7 +12,7 @@
         android:id="@+id/layout_relativo"
         android:layout_width="match_parent"
 
-        android:layout_height="52dp">
+        android:layout_height="wrap_content">
 
         <CheckBox
             android:id="@+id/check_box_item"
@@ -23,18 +23,6 @@
 
 
         </CheckBox>
-
-        <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="9dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="3dp"
-            android:layout_toEndOf="@+id/check_box_item">
-
-        </ImageView>
 
     </RelativeLayout>
 
