@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
@@ -19,6 +20,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public ProductAdapter(TelaListaActivity activity) {
         this.activity = activity;
+        this.products = new ArrayList<ProductModel>();
     }
 
     @NonNull
@@ -52,9 +54,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     }
 
     @Override
-    public int getItemCount() {
-        return products.size();
-    }
+    public int getItemCount() { return products.size(); }
 
     public Context getContext() {
         return activity;

@@ -5,18 +5,19 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
     android:layout_marginVertical="8dp"
+    android:layout_marginTop="20dp"
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
     <RelativeLayout
         android:id="@+id/layout_relativo"
         android:layout_width="match_parent"
-
         android:layout_height="wrap_content">
 
         <CheckBox
+
             android:id="@+id/check_box_item"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:buttonTint="#F7567c"
             tool:text="Item da lista">

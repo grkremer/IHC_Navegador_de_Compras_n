@@ -26,26 +26,26 @@ public class TelaListaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_lista);
-        //Objects.requireNonNull(getSupportActionBar()).hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
 
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        //adapter = new ProductAdapter(TelaListaActivity.this);
-        //recyclerView.setAdapter(adapter);
+        adapter = new ProductAdapter(TelaListaActivity.this);
+        recyclerView.setAdapter(adapter);
 
         products = new ArrayList<ProductModel>();
         products.add(new ProductModel("Uva"));
         products.add(new ProductModel("Suco de Uva"));
 
-        /*searchView = findViewById(R.id.searchView);
+        searchView = findViewById(R.id.searchView);
         searchView.setOnSearchClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                       //adapter.setProducts(products);
+                       adapter.setProducts(products);
                     }
                 }
-        );*/
+        );
     }
 }
