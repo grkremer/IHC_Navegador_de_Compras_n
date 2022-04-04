@@ -35,6 +35,7 @@ public class TelaListaActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
         List<ProductModel> products1 = new ArrayList<ProductModel>();
+
         products1.add(new ProductModel("Uva"));
         products1.add(new ProductModel("Suco de Uva"));
 
@@ -43,11 +44,14 @@ public class TelaListaActivity extends AppCompatActivity {
         products2.add(new ProductModel("Queijo Mussarela"));
         products2.add(new ProductModel("Queijo Cheddar"));
         products2.add(new ProductModel("Queijo Prato"));
+        products2.add(new ProductModel("Uva", true));
 
         List<ProductModel> products3 = new ArrayList<ProductModel>();
         products3.add(new ProductModel("Arroz Branco"));
         products3.add(new ProductModel("Arroz Integral"));
         products3.add(new ProductModel("Arroz Parabolizado"));
+        products3.add(new ProductModel("Uva", true));
+        products3.add(new ProductModel("Queijo Prato",true));
 
 
 

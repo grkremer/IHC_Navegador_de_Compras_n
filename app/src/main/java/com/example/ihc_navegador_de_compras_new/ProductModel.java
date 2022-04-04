@@ -24,4 +24,9 @@ public class ProductModel {
         setName(name);
         setSelected(false);
     }
+
+    ProductModel(String name, Boolean selected) {
+        setName(name);
+        setSelected(selected);
+    }
 }
