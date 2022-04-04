@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EsqueceuSenhaActivity">
+
+    <EditText
+        android:id="@+id/email_recupera"
+        android:layout_width="292dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Insirir Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.383" />
+
+    <Button
+        android:id="@+id/esqueceu_senha_botao2"
+        android:layout_width="186dp"
+        android:layout_height="46dp"
+        android:backgroundTint="#F7567C"
+        android:text="RECUPERAR SENHA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499"
+        app:rippleColor="#F7567C"
+        app:strokeColor="#F7567C" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insira seu Email para recuperar a senha."
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="217dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
