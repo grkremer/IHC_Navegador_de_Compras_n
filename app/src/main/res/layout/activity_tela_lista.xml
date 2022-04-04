@@ -47,14 +47,13 @@
         app:layout_constraintVertical_bias="0.047"
         />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="404dp"
-        android:layout_height="518dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568"
-        tools:layout_editor_absoluteX="3dp">
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="409dp"
+        android:layout_height="572dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="88dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:nestedScrollingEnabled="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

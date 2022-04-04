@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IHC_Navegador_de_Compras_new">
         <activity
-            android:name=".MainActivity"
+            android:name=".TelaListaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
