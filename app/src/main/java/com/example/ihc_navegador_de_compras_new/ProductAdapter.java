@@ -18,10 +18,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     private List<ProductModel> products;
     private AppCompatActivity activity;
+    boolean mostraLocalizacao;
 
-    public ProductAdapter(AppCompatActivity activity) {
+    public ProductAdapter(AppCompatActivity activity, boolean mostraLocalizacao) {
         this.activity = activity;
         this.products = new ArrayList<ProductModel>();
+        this.mostraLocalizacao = mostraLocalizacao;
     }
 
     @NonNull
@@ -35,7 +37,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ProductModel item = products.get(position);
-        holder.prodCheck.setText(item.getName());
+        if(mostraLocalizacao) {
+            String nome = item.getName()+" - Prateleira "+item.getLocalizacao();
+            holder.prodCheck.setText(nome);
+        }
+        else
+            holder.prodCheck.setText(item.getName());
         holder.prodCheck.setChecked(item.getSelected());
         holder.prodCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override

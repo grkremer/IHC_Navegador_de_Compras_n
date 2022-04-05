@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/comecar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
         android:text="Começar"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -23,8 +23,8 @@
 
     <Button
         android:id="@+id/limpar_carrinho"
-        android:layout_width="119dp"
-        android:layout_height="54dp"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
         android:text="Limpar Carrinho"
         app:layout_constraintBottom_toBottomOf="parent"

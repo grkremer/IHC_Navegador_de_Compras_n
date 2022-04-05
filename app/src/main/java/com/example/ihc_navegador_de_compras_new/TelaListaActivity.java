@@ -33,7 +33,7 @@ public class TelaListaActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ProductAdapter(TelaListaActivity.this);
+        adapter = new ProductAdapter(TelaListaActivity.this,false);
         recyclerView.setAdapter(adapter);
 
         products.add(new ProductModel("Uva", 9));

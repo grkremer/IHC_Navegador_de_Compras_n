@@ -39,8 +39,8 @@
 
     <Button
         android:id="@+id/login_botao"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -49,21 +49,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
-        app:rippleColor="#F7567C"
-        app:strokeColor="#F7567C" />
-
-    <Button
-        android:id="@+id/esqueceu_senha_botao"
-        android:layout_width="186dp"
-        android:layout_height="46dp"
-        android:backgroundTint="#F7567C"
-        android:text="RECUPERAR SENHA"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 

@@ -11,7 +11,12 @@
         android:theme="@style/Theme.IHC_Navegador_de_Compras_new">
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".TelaRotaActivity"
@@ -19,12 +24,8 @@
         </activity>
         <activity
             android:name=".TelaListaActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

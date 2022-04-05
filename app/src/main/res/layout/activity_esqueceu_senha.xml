@@ -22,8 +22,8 @@
 
     <Button
         android:id="@+id/esqueceu_senha_botao2"
-        android:layout_width="186dp"
-        android:layout_height="46dp"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
         android:text="RECUPERAR SENHA"
         app:layout_constraintBottom_toBottomOf="parent"
