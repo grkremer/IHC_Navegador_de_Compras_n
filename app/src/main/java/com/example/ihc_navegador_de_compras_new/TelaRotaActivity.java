@@ -11,17 +11,20 @@ import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TelaRotaActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
     private Button retorno;
+    private Button finalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_rota);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         List<ProductModel> cart = getProductsByName(getIntent().getStringArrayExtra("products"));
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -38,11 +41,20 @@ public class TelaRotaActivity extends AppCompatActivity {
                     }
                 }
         );
+        finalizar = findViewById(R.id.finalizar);
+        finalizar.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openLoginActivity();
+                    }
+                }
+        );
     }
 
     private List<ProductModel> getProductsByName(String[] names) {
         List<ProductModel> selected = new ArrayList<ProductModel>();
-        for(ProductModel productModel : TelaListaActivity.products) {
+        for(ProductModel productModel : LoginActivity.products) {
             for(String name : names) {
                 if(productModel.getName().equals(name)) {
                     selected.add(productModel);
@@ -53,6 +65,10 @@ public class TelaRotaActivity extends AppCompatActivity {
     }
     private void openTelaListaActivity() {
         Intent intent = new Intent(this, TelaListaActivity.class);
+        startActivity(intent);
+    }
+    private void openLoginActivity() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }

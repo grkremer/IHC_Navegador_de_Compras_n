@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="mercados_array">
+        <item></item>
+        <item>Atacadinho</item>
+        <item>Ason</item>
+        <item>Carbono</item>
+        <item>Catarinão</item>
+        <item>Cig Hipermercado</item>
+        <item>Fazzari</item>
+    </string-array>
+</resources>

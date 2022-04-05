@@ -6,49 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <EditText
-        android:id="@+id/login_email"
-        android:layout_width="259dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:hint="Insira seu Email"
-        android:inputType="textEmailAddress"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358" />
-
-    <EditText
-        android:id="@+id/login_senha"
-        android:layout_width="258dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="Insira sua Senha"
-        android:inputType="numberPassword"
-        android:minHeight="48dp"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.443" />
-
     <Button
         android:id="@+id/login_botao"
         android:layout_width="125dp"
         android:layout_height="56dp"
+        android:layout_marginTop="60dp"
         android:backgroundTint="#F7567C"
-        android:text="Login"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="Começar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
@@ -56,11 +23,32 @@
         android:id="@+id/imageView"
         android:layout_width="129dp"
         android:layout_height="120dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="68dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.111"
         app:srcCompat="@drawable/ic_baseline_shopping_cart_24" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Selecione o mercado para começar:"
+        android:textColor="#F7567C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

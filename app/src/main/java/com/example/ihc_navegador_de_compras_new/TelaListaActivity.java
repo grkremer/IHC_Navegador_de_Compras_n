@@ -19,7 +19,7 @@ public class TelaListaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
 
-    public static List<ProductModel> products = new ArrayList<>();
+
     int counter = 0;
     private SearchView searchView;
     private Button comecar;
@@ -30,15 +30,10 @@ public class TelaListaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_lista);
         Objects.requireNonNull(getSupportActionBar()).hide();
 
-
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ProductAdapter(TelaListaActivity.this,false);
         recyclerView.setAdapter(adapter);
-
-        products.add(new ProductModel("Uva", 9));
-        products.add(new ProductModel("Queijo Prato", 12));
-        products.add(new ProductModel("Arroz Branco", 4));
 
         List<ProductModel> products1 = new ArrayList<ProductModel>();
         products1.add(new ProductModel("Uva"));

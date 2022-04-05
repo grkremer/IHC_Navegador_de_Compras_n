@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,12 +38,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ProductModel item = products.get(position);
-        if(mostraLocalizacao) {
-            String nome = item.getName()+" - Prateleira "+item.getLocalizacao();
-            holder.prodCheck.setText(nome);
-        }
-        else
-            holder.prodCheck.setText(item.getName());
+        if(mostraLocalizacao)
+            holder.locationView.setText("Prateleira "+item.getLocalizacao());
+        holder.prodCheck.setText(item.getName());
         holder.prodCheck.setChecked(item.getSelected());
         holder.prodCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -71,10 +69,12 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         CheckBox prodCheck;
+        TextView locationView;
 
         ViewHolder(View view) {
             super(view);
             prodCheck = view.findViewById(R.id.check_box_item);
+            locationView = view.findViewById(R.id.text_item);
         }
     }
 }
