@@ -4,61 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaListaActivity">
+    tools:context=".TelaRotaActivity">
 
     <Button
-        android:id="@+id/comecar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/finalizar"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
-        android:text="Começar"
+        android:text="Finalizar Compras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.922"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
+        app:layout_constraintVertical_bias="0.96"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
     <Button
-        android:id="@+id/limpar_carrinho"
-        android:layout_width="119dp"
-        android:layout_height="54dp"
+        android:id="@+id/editar_lista"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
-        android:text="Limpar Carrinho"
+        android:text="Editar Lista"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintHorizontal_bias="0.055"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976"
+        app:layout_constraintVertical_bias="0.96"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
-    <SearchView
-        android:id="@+id/searchView"
-        style="@android:style/Widget.Material.Light.SearchView"
-        android:layout_width="350dp"
-        android:layout_height="46dp"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="377dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#EFEFEF"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="498dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="#FFFFFF"
+        android:layout_width="410dp"
+        android:layout_height="352dp"
+        android:layout_marginTop="24dp"
         android:nestedScrollingEnabled="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
-
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

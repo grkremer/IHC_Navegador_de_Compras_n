@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -16,9 +17,9 @@ import java.util.List;
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHolder> {
 
     private List<ProductModel> products;
-    private TelaListaActivity activity;
+    private AppCompatActivity activity;
 
-    public ProductAdapter(TelaListaActivity activity) {
+    public ProductAdapter(AppCompatActivity activity) {
         this.activity = activity;
         this.products = new ArrayList<ProductModel>();
     }
@@ -31,15 +32,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         return new ViewHolder(itemView);
     }
 
-    private ProductModel findProductByName(List<ProductModel> products, String name) {
-        for(ProductModel product : products) {
-            if(product.getName().equals(name)) {
-                return product;
-            }
-        }
-        return null;
-    }
-
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ProductModel item = products.get(position);
@@ -48,7 +40,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         holder.prodCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                findProductByName(products, item.getName()).setSelected(isChecked);
+                item.setSelected(isChecked);
             }
         });
     }

@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IHC_Navegador_de_Compras_new">
         <activity
+            android:name=".LoginActivity"
+            android:exported="false">
+        </activity>
+        <activity
+            android:name=".TelaRotaActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".TelaListaActivity"
             android:exported="true">
             <intent-filter>
