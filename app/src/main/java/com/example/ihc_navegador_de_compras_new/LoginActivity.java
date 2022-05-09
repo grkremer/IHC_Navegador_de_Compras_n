@@ -146,11 +146,11 @@ public class LoginActivity extends AppCompatActivity {
             corredores.get(5).getVizinhos().add(corredores.get(22));
             corredores.get(11).getVizinhos().add(corredores.get(22));
 
-            corredores.get(1).setCaminho(true);
-            corredores.get(14).setCaminho(true);
-            corredores.get(15).setCaminho(true);
-            corredores.get(16).setCaminho(true);
-            corredores.get(8).setCaminho(true);
+            //corredores.get(1).setCaminho(true);
+            //corredores.get(14).setCaminho(true);
+            //corredores.get(15).setCaminho(true);
+            //corredores.get(16).setCaminho(true);
+            //corredores.get(8).setCaminho(true);
         }
 
         login = findViewById(R.id.login_botao);

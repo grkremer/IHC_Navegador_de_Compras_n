@@ -104,6 +104,9 @@ public class TelaPesquisaActivity extends AppCompatActivity {
     public void openTelaMapaActivity() {
         Intent intent = new Intent(this, TelaMapaActivity.class);
         intent.putExtra("products", getSelectedNames(adapter.getProducts()));
+        for(ProductModel productModel : adapter.getProducts()) {
+            productModel.setSelected(false);
+        }
         startActivity(intent);
     }
 }

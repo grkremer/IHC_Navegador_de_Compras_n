@@ -7,6 +7,7 @@ import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,25 +22,93 @@ public class TelaMapaActivity extends AppCompatActivity {
     private Button lista;
     private Button finalizar;
 
+    private TextView produto;
+
+    private List<ProductModel> cart;
+    private int prodCount;
+
+    void apagaCaminho() {
+        for(Corredor corredor : LoginActivity.corredores) {
+            corredor.setCaminho(false);
+        }
+    }
+
+    void encontraCaminho(int local1, int local2) {
+        apagaCaminho();
+        LoginActivity.corredores.get(local1 - 1).setCaminho(true);
+        LoginActivity.corredores.get(local1 - 1).getVizinhos().get(0).setCaminho(true);
+
+        LoginActivity.corredores.get(local2 - 1).setCaminho(true);
+        LoginActivity.corredores.get(local2 - 1).getVizinhos().get(0).setCaminho(true);
+
+        int menorId = Math.min(LoginActivity.corredores.get(local1 - 1).getVizinhos().get(0).getNumero(), LoginActivity.corredores.get(local2 - 1).getVizinhos().get(0).getNumero());
+        int maiorId = Math.max(LoginActivity.corredores.get(local1 - 1).getVizinhos().get(0).getNumero(), LoginActivity.corredores.get(local2 - 1).getVizinhos().get(0).getNumero());
+        for(int id = menorId; id < maiorId; id++) {
+            LoginActivity.corredores.get(id).setCaminho(true);
+        }
+    }
+
+    void updateTextoProduto() {
+        if(prodCount < cart.size()) {
+            produto.setText(cart.get(prodCount).getName() + " - Corredor " + cart.get(prodCount).getLocalizacao());
+            peguei.setVisibility(View.VISIBLE);
+        }
+        else {
+            produto.setText("");
+            peguei.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    void incrementaProdCount() {
+        boolean incrementa;
+        do{
+            prodCount++;
+            if(prodCount < cart.size()) {
+                incrementa = cart.get(prodCount).getSelected();
+            }
+            else {
+                incrementa = false;
+            }
+        }while (incrementa);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_mapa);
         Objects.requireNonNull(getSupportActionBar()).hide();
-        List<ProductModel> cart = getProductsByName(getIntent().getStringArrayExtra("products"));
+        cart = getProductsByName(getIntent().getStringArrayExtra("products"));
 
         mapaView = findViewById(R.id.mapaView);
+
+        prodCount = -1;
+        incrementaProdCount();
+        if(!cart.isEmpty() && prodCount == 0)
+            encontraCaminho(1, cart.get(prodCount).getLocalizacao());
 
         peguei = findViewById(R.id.peguei);
         peguei.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //
+                        if(prodCount < cart.size()) {
+                            cart.get(prodCount).setSelected(true);
+                            incrementaProdCount();
+                        }
+                        if(prodCount < cart.size())
+                            encontraCaminho(cart.get(prodCount-1).getLocalizacao(), cart.get(prodCount).getLocalizacao());
+                        else
+                            apagaCaminho();
+                        updateTextoProduto();
                         mapaView.refresh();
                     }
                 }
         );
+
+
+        produto = findViewById(R.id.produto);
+        updateTextoProduto();
+
         retorno = findViewById(R.id.editar_lista);
         retorno.setOnClickListener(
                 new View.OnClickListener() {
