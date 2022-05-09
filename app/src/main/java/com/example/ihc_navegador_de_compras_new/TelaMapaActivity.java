@@ -3,6 +3,7 @@ package com.example.ihc_navegador_de_compras_new;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class TelaMapaActivity extends AppCompatActivity {
+
+    private MapaView mapaView;
 
     private Button peguei;
     private Button retorno;
@@ -25,12 +28,15 @@ public class TelaMapaActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
         List<ProductModel> cart = getProductsByName(getIntent().getStringArrayExtra("products"));
 
+        mapaView = findViewById(R.id.mapaView);
+
         peguei = findViewById(R.id.peguei);
         peguei.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-
+                        //
+                        mapaView.refresh();
                     }
                 }
         );
@@ -62,6 +68,8 @@ public class TelaMapaActivity extends AppCompatActivity {
                 }
         );
     }
+
+
 
     private List<ProductModel> getProductsByName(String[] names) {
         List<ProductModel> selected = new ArrayList<ProductModel>();

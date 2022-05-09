@@ -23,10 +23,24 @@ public class MapaView extends View {
         super(context, attrs, defStyleAttr);
     }
 
+    public void refresh() {
+        setVisibility(View.INVISIBLE);
+        setVisibility(View.VISIBLE);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        paint.setColor(Color.RED);
-        canvas.drawRect(2, 3, 4, 5, paint);
+        canvas.drawColor(Color.LTGRAY);
+        paint.setColor(Color.GRAY);
+        int nPrateleirasX = 5;
+        int nPrateleirasY = 2;
+        int tamanho = getContext().getResources().getDimensionPixelOffset(R.dimen.mapa_size);
+        int larguraPrateleira = tamanho/(2*nPrateleirasX +1);
+        int alturaPrateleira = (tamanho - larguraPrateleira*(nPrateleirasY+1)) / nPrateleirasY;
+        for(int x=0; x < nPrateleirasX; x++)
+            for(int y=0; y < nPrateleirasY; y++)
+                canvas.drawRect(larguraPrateleira+(x*(2*larguraPrateleira)), larguraPrateleira*(y+1) + alturaPrateleira*y, (2*larguraPrateleira)+(x*(2*larguraPrateleira)), larguraPrateleira*(y+1) + alturaPrateleira*(y+1), paint);
+
     }
 }
