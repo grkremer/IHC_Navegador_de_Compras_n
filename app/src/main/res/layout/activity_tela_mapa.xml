@@ -11,36 +11,36 @@
         android:layout_width="278dp"
         android:layout_height="55dp"
         android:backgroundTint="#F7567C"
-        android:text="Peguei"
+        android:text="Já Peguei!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831"
+        app:layout_constraintVertical_bias="0.655"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
     <Button
         android:id="@+id/lista"
-        android:layout_width="89dp"
-        android:layout_height="56dp"
+        android:layout_width="88dp"
+        android:layout_height="62dp"
         android:backgroundTint="#F7567C"
-        android:text="Lista"
+        android:text="Lista 📄"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"
+        app:layout_constraintVertical_bias="0.962"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
     <Button
         android:id="@+id/finalizar"
-        android:layout_width="125dp"
-        android:layout_height="56dp"
-        android:backgroundTint="#F7567C"
+        android:layout_width="116dp"
+        android:layout_height="61dp"
+        android:backgroundTint="#4CAF50"
         android:text="Finalizar Compras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,16 +53,16 @@
 
     <Button
         android:id="@+id/editar_lista"
-        android:layout_width="125dp"
-        android:layout_height="56dp"
+        android:layout_width="106dp"
+        android:layout_height="58dp"
         android:backgroundTint="#F7567C"
-        android:text="Editar Lista"
+        android:text="Editar 📝"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"
+        app:layout_constraintVertical_bias="0.958"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
@@ -78,16 +78,18 @@
 
     <TextView
         android:id="@+id/produto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="297dp"
+        android:layout_height="30dp"
         android:layout_marginTop="64dp"
         android:text="Nome do produto - Corredor N"
+        android:textAlignment="center"
         android:textColor="#F7567C"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.675" />
+        app:layout_constraintVertical_bias="0.533" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@
         android:id="@+id/comecar"
         android:layout_width="125dp"
         android:layout_height="56dp"
-        android:backgroundTint="#F7567C"
+        android:backgroundTint="#4CAF50"
         android:text="Começar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,15 +50,16 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="498dp"
+        android:layout_width="407dp"
+        android:layout_height="509dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="#FFFFFF"
         android:nestedScrollingEnabled="true"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
