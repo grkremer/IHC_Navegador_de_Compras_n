@@ -17,8 +17,8 @@ public class TelaListaActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
-    private Button retorno;
-    private Button finalizar;
+
+    private Button mapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,26 +32,17 @@ public class TelaListaActivity extends AppCompatActivity {
         adapter = new ProductAdapter(TelaListaActivity.this,true);
         recyclerView.setAdapter(adapter);
         adapter.setProducts(cart);
-        retorno = findViewById(R.id.editar_lista);
-        retorno.setOnClickListener(
+
+        mapa = findViewById(R.id.mapa);
+        mapa.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        openTelaListaActivity();
-                    }
-                }
-        );
-        finalizar = findViewById(R.id.finalizar);
-        finalizar.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        openLoginActivity();
+                        openTelaMapaActivity();
                     }
                 }
         );
     }
-
     private List<ProductModel> getProductsByName(String[] names) {
         List<ProductModel> selected = new ArrayList<ProductModel>();
         for(ProductModel productModel : LoginActivity.products) {
@@ -63,12 +54,9 @@ public class TelaListaActivity extends AppCompatActivity {
         }
         return selected;
     }
-    private void openTelaListaActivity() {
-        Intent intent = new Intent(this, TelaPesquisaActivity.class);
-        startActivity(intent);
-    }
-    private void openLoginActivity() {
-        Intent intent = new Intent(this, LoginActivity.class);
+    private void openTelaMapaActivity() {
+        Intent intent = new Intent(this, TelaMapaActivity.class);
+        intent.putExtra("products", getIntent().getStringArrayExtra("products"));
         startActivity(intent);
     }
 }

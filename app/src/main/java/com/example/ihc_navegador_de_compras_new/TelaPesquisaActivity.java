@@ -52,7 +52,7 @@ public class TelaPesquisaActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        openTelaRotaActivity();
+                        openTelaMapaActivity();
                     }
                 }
         );
@@ -101,8 +101,8 @@ public class TelaPesquisaActivity extends AppCompatActivity {
         return namesArray;
     }
 
-    public void openTelaRotaActivity() {
-        Intent intent = new Intent(this, TelaListaActivity.class);
+    public void openTelaMapaActivity() {
+        Intent intent = new Intent(this, TelaMapaActivity.class);
         intent.putExtra("products", getSelectedNames(adapter.getProducts()));
         startActivity(intent);
     }
