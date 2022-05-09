@@ -39,7 +39,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final ProductModel item = products.get(position);
         if(mostraLocalizacao)
-            holder.locationView.setText("Prateleira "+item.getLocalizacao());
+            holder.locationView.setText("Corredor "+item.getLocalizacao());
         holder.prodCheck.setText(item.getName());
         holder.prodCheck.setChecked(item.getSelected());
         holder.prodCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

@@ -28,8 +28,16 @@ public class LoginActivity extends AppCompatActivity {
             products.add(new ProductModel("Uva", 9));
             products.add(new ProductModel("Queijo Prato", 12));
             products.add(new ProductModel("Arroz Branco", 4));
-        }
 
+            products.add(new ProductModel("Suco de Uva", 0));
+
+            products.add(new ProductModel("Queijo Parmesão", 0));
+            products.add(new ProductModel("Queijo Mussarela", 0));
+            products.add(new ProductModel("Queijo Cheddar", 0));
+
+            products.add(new ProductModel("Arroz Integral", 0));
+            products.add(new ProductModel("Arroz Parabolizado", 0));
+        }
         for(ProductModel p: products) {
             p.setSelected(false);
         }

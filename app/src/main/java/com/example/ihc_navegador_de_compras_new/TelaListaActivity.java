@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TelaListaActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
 
-
-    int counter = 0;
+    private List<ProductModel> productList;
     private SearchView searchView;
     private Button comecar;
 
@@ -35,41 +36,14 @@ public class TelaListaActivity extends AppCompatActivity {
         adapter = new ProductAdapter(TelaListaActivity.this,false);
         recyclerView.setAdapter(adapter);
 
-        List<ProductModel> products1 = new ArrayList<ProductModel>();
-        products1.add(new ProductModel("Uva"));
-        products1.add(new ProductModel("Suco de Uva"));
-
-        List<ProductModel> products2 = new ArrayList<ProductModel>();
-        products2.add(new ProductModel("Queijo Parmesão"));
-        products2.add(new ProductModel("Queijo Mussarela"));
-        products2.add(new ProductModel("Queijo Cheddar"));
-        products2.add(new ProductModel("Queijo Prato"));
-        products2.add(new ProductModel("Uva", true));
-
-        List<ProductModel> products3 = new ArrayList<ProductModel>();
-        products3.add(new ProductModel("Arroz Branco"));
-        products3.add(new ProductModel("Arroz Integral"));
-        products3.add(new ProductModel("Arroz Parabolizado"));
-        products3.add(new ProductModel("Uva", true));
-        products3.add(new ProductModel("Queijo Prato",true));
+        productList = new ArrayList<ProductModel>();
 
         searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                switch (counter) {
-                    case 0:
-                        adapter.setProducts(products1);
-                        break;
-                    case 1:
-                        adapter.setProducts(products2);
-                        break;
-                    default:
-                        adapter.setProducts(products3);
-                        break;
-                }
-                counter++;
-                //adapter.setProducts(products);
+                updateProductList(pesquisaProdutos(query));
+                adapter.setProducts(productList);
                 return false;
             }
 
@@ -89,10 +63,42 @@ public class TelaListaActivity extends AppCompatActivity {
                 }
         );
     }
+
+    void updateProductList(List<ProductModel> results) {
+        for(ProductModel productModel : productList) {
+            if(productModel.getSelected()) {
+                results.add(productModel);
+            }
+        }
+        productList = results;
+    }
+
+    List<ProductModel> pesquisaProdutos(String termo) {
+        termo = termo.toUpperCase();
+        List<ProductModel> results = new ArrayList<ProductModel>();
+        for(ProductModel productModel : LoginActivity.products) {
+            if(productModel.getName().toUpperCase().contains(termo)) {
+                results.add(productModel);
+            }
+        }
+        return results;
+    }
+
+    String[] getSelectedNames(List<ProductModel> productModelList) {
+        List<String> names = new ArrayList<String>();
+        for(ProductModel productModel : productModelList) {
+            if(productModel.getSelected())
+                names.add(productModel.getName());
+        }
+        String[] namesArray = new String[names.size()];
+        for(int i=0; i<namesArray.length; i++)
+            namesArray[i] = names.get(i);
+        return namesArray;
+    }
+
     public void openTelaRotaActivity() {
         Intent intent = new Intent(this, TelaRotaActivity.class);
-        String[] p = {"Uva", "Queijo Prato", "Arroz Branco"};
-        intent.putExtra("products", p);
+        intent.putExtra("products", getSelectedNames(productList));
         startActivity(intent);
     }
 }
