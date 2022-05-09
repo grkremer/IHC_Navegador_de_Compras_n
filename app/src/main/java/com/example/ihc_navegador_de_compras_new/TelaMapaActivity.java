@@ -4,14 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class TelaMapaActivity extends AppCompatActivity {
 
@@ -26,6 +29,13 @@ public class TelaMapaActivity extends AppCompatActivity {
 
     private List<ProductModel> cart;
     private int prodCount;
+
+    private List<ProductModel> ordenaProdutos(List<ProductModel> productModelList) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return productModelList.stream().sorted(Comparator.comparing(ProductModel::getLocalizacao)).collect(Collectors.toList());
+        }
+        return productModelList;
+    }
 
     void apagaCaminho() {
         for(Corredor corredor : LoginActivity.corredores) {
@@ -78,6 +88,7 @@ public class TelaMapaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_mapa);
         Objects.requireNonNull(getSupportActionBar()).hide();
         cart = getProductsByName(getIntent().getStringArrayExtra("products"));
+        cart = ordenaProdutos(cart);
 
         mapaView = findViewById(R.id.mapaView);
 

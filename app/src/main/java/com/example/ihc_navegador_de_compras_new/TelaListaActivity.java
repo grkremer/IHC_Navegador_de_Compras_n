@@ -5,13 +5,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class TelaListaActivity extends AppCompatActivity {
 
@@ -26,7 +29,8 @@ public class TelaListaActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tela_lista);
         Objects.requireNonNull(getSupportActionBar()).hide();
         List<ProductModel> cart = getProductsByName(getIntent().getStringArrayExtra("products"));
-
+        cart = ordenaProdutos(cart);
+        
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ProductAdapter(TelaListaActivity.this,true);
@@ -43,6 +47,14 @@ public class TelaListaActivity extends AppCompatActivity {
                 }
         );
     }
+
+    private List<ProductModel> ordenaProdutos(List<ProductModel> productModelList) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return productModelList.stream().sorted(Comparator.comparing(ProductModel::getLocalizacao)).collect(Collectors.toList());
+        }
+        return productModelList;
+    }
+
     private List<ProductModel> getProductsByName(String[] names) {
         List<ProductModel> selected = new ArrayList<ProductModel>();
         for(ProductModel productModel : LoginActivity.products) {
