@@ -43,6 +43,24 @@ public class MapaView extends View {
                 canvas.drawRect(larguraPrateleira + (x * (2 * larguraPrateleira)), larguraPrateleira * (y + 1) + alturaPrateleira * y, (2 * larguraPrateleira) + (x * (2 * larguraPrateleira)), larguraPrateleira * (y + 1) + alturaPrateleira * (y + 1), paint);
             }
         }
+        paint.setTextSize(larguraPrateleira/2);
+        paint.setTextAlign(Paint.Align.CENTER);
+        for(Corredor corredor : LoginActivity.corredores) {
+            if(corredor.isPrateleira()) {
+                int y;
+                if(corredor.getY() == 0) {
+                    y = larguraPrateleira + alturaPrateleira/2;
+                }
+                else if(corredor.getY() == 1) {
+                    y = larguraPrateleira + alturaPrateleira + larguraPrateleira/2;
+                }
+                else {
+                    y = 2*larguraPrateleira + alturaPrateleira + alturaPrateleira/2;
+                }
+                int x = corredor.getX()*larguraPrateleira + larguraPrateleira/2;
+                canvas.drawText(Integer.toString(corredor.getNumero()), x, y, paint);
+            }
+        }
         paint.setColor(Color.RED);
         for(Corredor corredor : LoginActivity.corredores) {
             for(Corredor vizinho : corredor.getVizinhos()) {
@@ -72,6 +90,51 @@ public class MapaView extends View {
                     canvas.drawLine(corredor.getX()*larguraPrateleira + larguraPrateleira/2 +1, y1, vizinho.getX()*larguraPrateleira + larguraPrateleira/2 +1, y2, paint);
                     canvas.drawLine(corredor.getX()*larguraPrateleira + larguraPrateleira/2 -1, y1, vizinho.getX()*larguraPrateleira + larguraPrateleira/2 -1, y2, paint);
                 }
+            }
+        }
+        if(LoginActivity.inicio != -1) {
+            int x = LoginActivity.corredores.get(LoginActivity.inicio-1).getX();
+            int y = LoginActivity.corredores.get(LoginActivity.inicio-1).getY();
+            int raio = larguraPrateleira/8;
+            if(y == 0) {
+                y = larguraPrateleira + alturaPrateleira/2;
+            }
+            else if(y == 1) {
+                y = larguraPrateleira + alturaPrateleira + larguraPrateleira/2;
+            }
+            else {
+                y = 2*larguraPrateleira + alturaPrateleira + alturaPrateleira/2;
+            }
+            canvas.drawCircle(x*larguraPrateleira + larguraPrateleira/2, y, raio, paint);
+        }
+        if(LoginActivity.fim != -1) {
+            int x = LoginActivity.corredores.get(LoginActivity.fim-1).getX();
+            int y = LoginActivity.corredores.get(LoginActivity.fim-1).getY();
+            if(y == 0) {
+                y = larguraPrateleira + alturaPrateleira/2;
+            }
+            else if(y == 1) {
+                y = larguraPrateleira + alturaPrateleira + larguraPrateleira/2;
+            }
+            else {
+                y = 2*larguraPrateleira + alturaPrateleira + alturaPrateleira/2;
+            }
+            x = x*larguraPrateleira + larguraPrateleira/2;
+            if(LoginActivity.fim >= 7) {
+                canvas.drawLine(x, y, x-(larguraPrateleira/5), y-(larguraPrateleira/5), paint);
+                canvas.drawLine(x, y +1, x-(larguraPrateleira/5), y-(larguraPrateleira/5) + 1, paint);
+                canvas.drawLine(x, y -1, x-(larguraPrateleira/5), y-(larguraPrateleira/5) - 1, paint);
+                canvas.drawLine(x, y, x+(larguraPrateleira/5), y-(larguraPrateleira/5), paint);
+                canvas.drawLine(x, y +1, x+(larguraPrateleira/5), y-(larguraPrateleira/5) + 1, paint);
+                canvas.drawLine(x, y -1, x+(larguraPrateleira/5), y-(larguraPrateleira/5) - 1, paint);
+            }
+            else {
+                canvas.drawLine(x, y, x-(larguraPrateleira/5), y+(larguraPrateleira/5), paint);
+                canvas.drawLine(x, y +1, x-(larguraPrateleira/5), y+(larguraPrateleira/5) + 1, paint);
+                canvas.drawLine(x, y -1, x-(larguraPrateleira/5), y+(larguraPrateleira/5) - 1, paint);
+                canvas.drawLine(x, y, x+(larguraPrateleira/5), y+(larguraPrateleira/5), paint);
+                canvas.drawLine(x, y +1, x+(larguraPrateleira/5), y+(larguraPrateleira/5) + 1, paint);
+                canvas.drawLine(x, y -1, x+(larguraPrateleira/5), y+(larguraPrateleira/5) - 1, paint);
             }
         }
     }

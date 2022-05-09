@@ -21,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     public static List<Corredor> corredores = new ArrayList<>();
     public static int nPrateleirasX = 5;
     public static int nPrateleirasY = 2;
+    public static int inicio = -1;
+    public static int fim = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -146,11 +148,6 @@ public class LoginActivity extends AppCompatActivity {
             corredores.get(5).getVizinhos().add(corredores.get(22));
             corredores.get(11).getVizinhos().add(corredores.get(22));
 
-            //corredores.get(1).setCaminho(true);
-            //corredores.get(14).setCaminho(true);
-            //corredores.get(15).setCaminho(true);
-            //corredores.get(16).setCaminho(true);
-            //corredores.get(8).setCaminho(true);
         }
 
         login = findViewById(R.id.login_botao);
@@ -174,6 +171,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void openTelaListaActivity() {
         Intent intent = new Intent(this, TelaPesquisaActivity.class);
+        intent.putExtra("products", (String[])null);
         startActivity(intent);
     }
 }

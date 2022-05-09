@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +26,7 @@ public class TelaPesquisaActivity extends AppCompatActivity {
     private SearchView searchView;
     private Button comecar;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +37,8 @@ public class TelaPesquisaActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new ProductAdapter(TelaPesquisaActivity.this,false);
         recyclerView.setAdapter(adapter);
+        if(!Objects.isNull(getIntent().getStringArrayExtra("products")))
+            updateProductList(getProductsByName(getIntent().getStringArrayExtra("products")));
 
         searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -61,6 +65,18 @@ public class TelaPesquisaActivity extends AppCompatActivity {
         );
     }
 
+    private List<ProductModel> getProductsByName(String[] names) {
+        List<ProductModel> selected = new ArrayList<ProductModel>();
+        for(ProductModel productModel : LoginActivity.products) {
+            for(String name : names) {
+                if(productModel.getName().equals(name)) {
+                    selected.add(productModel);
+                }
+            }
+        }
+        return selected;
+    }
+
     void updateProductList(List<ProductModel> results) {
         //for(ProductModel productModel : adapter.getProducts()) {
         //    if (productModel.getSelected()) {
@@ -77,7 +93,8 @@ public class TelaPesquisaActivity extends AppCompatActivity {
             i++;
         }
         for(ProductModel productModel : results) {
-            adapter.getProducts().add(productModel);
+            if(!adapter.getProducts().contains(productModel))
+                adapter.getProducts().add(productModel);
         }
     }
 

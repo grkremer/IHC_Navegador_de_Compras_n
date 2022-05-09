@@ -64,7 +64,7 @@ public class TelaMapaActivity extends AppCompatActivity {
             peguei.setVisibility(View.VISIBLE);
         }
         else {
-            produto.setText("");
+            produto.setText("Agora é só se dirigir ao caixa!");
             peguei.setVisibility(View.INVISIBLE);
         }
     }
@@ -94,9 +94,11 @@ public class TelaMapaActivity extends AppCompatActivity {
 
         prodCount = -1;
         incrementaProdCount();
-        if(!cart.isEmpty() && prodCount == 0)
-            encontraCaminho(1, cart.get(prodCount).getLocalizacao());
-
+        if(!cart.isEmpty() && prodCount == 0) {
+            LoginActivity.inicio = 1;
+            LoginActivity.fim = cart.get(prodCount).getLocalizacao();
+            encontraCaminho(LoginActivity.inicio, LoginActivity.fim);
+        }
         peguei = findViewById(R.id.peguei);
         peguei.setOnClickListener(
                 new View.OnClickListener() {
@@ -106,10 +108,22 @@ public class TelaMapaActivity extends AppCompatActivity {
                             cart.get(prodCount).setSelected(true);
                             incrementaProdCount();
                         }
-                        if(prodCount < cart.size())
-                            encontraCaminho(cart.get(prodCount-1).getLocalizacao(), cart.get(prodCount).getLocalizacao());
-                        else
+                        if(prodCount < cart.size()) {
+                            LoginActivity.inicio = cart.get(prodCount-1).getLocalizacao();
+                            LoginActivity.fim = cart.get(prodCount).getLocalizacao();
+                            if(LoginActivity.inicio == LoginActivity.fim) {
+                                apagaCaminho();
+                                LoginActivity.fim = -1;
+                            }
+                            else {
+                                encontraCaminho(LoginActivity.inicio, LoginActivity.fim);
+                            }
+                        }
+                        else {
+                            LoginActivity.inicio = -1;
+                            LoginActivity.fim = -1;
                             apagaCaminho();
+                        }
                         updateTextoProduto();
                         mapaView.refresh();
                     }
@@ -164,6 +178,10 @@ public class TelaMapaActivity extends AppCompatActivity {
     }
     private void openTelaPesquisaActivity() {
         Intent intent = new Intent(this, TelaPesquisaActivity.class);
+        for(ProductModel productModel : cart) {
+            productModel.setSelected(true);
+        }
+        intent.putExtra("products", getIntent().getStringArrayExtra("products"));
         startActivity(intent);
     }
     private void openLoginActivity() {
