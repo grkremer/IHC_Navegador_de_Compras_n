@@ -17,14 +17,14 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.655"
+        app:layout_constraintVertical_bias="0.656"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
     <Button
         android:id="@+id/lista"
         android:layout_width="88dp"
-        android:layout_height="62dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
         android:text="Lista 📄"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,34 +32,34 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.962"
+        app:layout_constraintVertical_bias="0.958"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
     <Button
         android:id="@+id/finalizar"
         android:layout_width="116dp"
-        android:layout_height="61dp"
+        android:layout_height="56dp"
         android:backgroundTint="#4CAF50"
         android:text="Finalizar Compras"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintHorizontal_bias="0.911"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.96"
+        app:layout_constraintVertical_bias="0.958"
         app:rippleColor="#F7567C"
         app:strokeColor="#F7567C" />
 
     <Button
         android:id="@+id/editar_lista"
         android:layout_width="106dp"
-        android:layout_height="58dp"
+        android:layout_height="56dp"
         android:backgroundTint="#F7567C"
         android:text="Editar 📝"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.078"
+        app:layout_constraintHorizontal_bias="0.081"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.958"
@@ -87,9 +87,8 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.533" />
+        app:layout_constraintVertical_bias="0.535" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

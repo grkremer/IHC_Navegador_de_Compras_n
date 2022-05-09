@@ -11,7 +11,7 @@
         android:layout_width="89dp"
         android:layout_height="56dp"
         android:backgroundTint="#F7567C"
-        android:text="Mapa"
+        android:text="Mapa 🗺"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
