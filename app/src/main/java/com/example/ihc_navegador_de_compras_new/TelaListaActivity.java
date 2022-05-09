@@ -21,7 +21,6 @@ public class TelaListaActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ProductAdapter adapter;
 
-    private List<ProductModel> productList;
     private SearchView searchView;
     private Button comecar;
 
@@ -36,14 +35,11 @@ public class TelaListaActivity extends AppCompatActivity {
         adapter = new ProductAdapter(TelaListaActivity.this,false);
         recyclerView.setAdapter(adapter);
 
-        productList = new ArrayList<ProductModel>();
-
         searchView = findViewById(R.id.searchView);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 updateProductList(pesquisaProdutos(query));
-                adapter.setProducts(productList);
                 return false;
             }
 
@@ -65,12 +61,23 @@ public class TelaListaActivity extends AppCompatActivity {
     }
 
     void updateProductList(List<ProductModel> results) {
-        for(ProductModel productModel : productList) {
-            if(productModel.getSelected()) {
-                results.add(productModel);
+        //for(ProductModel productModel : adapter.getProducts()) {
+        //    if (productModel.getSelected()) {
+        //        results.add(productModel);
+        //    }
+        //}
+        //adapter.setProducts(results);
+        int i = 0;
+        while (i < adapter.getItemCount()) {
+            if(!adapter.getProducts().get(i).getSelected()) {
+                adapter.deleteItem(i);
+                i--;
             }
+            i++;
         }
-        productList = results;
+        for(ProductModel productModel : results) {
+            adapter.getProducts().add(productModel);
+        }
     }
 
     List<ProductModel> pesquisaProdutos(String termo) {
@@ -98,7 +105,7 @@ public class TelaListaActivity extends AppCompatActivity {
 
     public void openTelaRotaActivity() {
         Intent intent = new Intent(this, TelaRotaActivity.class);
-        intent.putExtra("products", getSelectedNames(productList));
+        intent.putExtra("products", getSelectedNames(adapter.getProducts()));
         startActivity(intent);
     }
 }

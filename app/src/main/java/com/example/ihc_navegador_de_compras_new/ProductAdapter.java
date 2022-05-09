@@ -62,6 +62,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ViewHold
         notifyDataSetChanged();
     }
 
+    public List<ProductModel> getProducts() {
+        return products;
+    }
+
     public void deleteItem(int position) {
         products.remove(position);
         notifyItemRemoved(position);
