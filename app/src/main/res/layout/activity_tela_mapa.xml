@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TelaListaActivity">
+
+    <Button
+        android:id="@+id/peguei"
+        android:layout_width="278dp"
+        android:layout_height="55dp"
+        android:backgroundTint="#F7567C"
+        android:text="Peguei"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.831"
+        app:rippleColor="#F7567C"
+        app:strokeColor="#F7567C" />
+
+    <Button
+        android:id="@+id/lista"
+        android:layout_width="89dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#F7567C"
+        android:text="Lista"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96"
+        app:rippleColor="#F7567C"
+        app:strokeColor="#F7567C" />
+
+    <Button
+        android:id="@+id/finalizar"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#F7567C"
+        android:text="Finalizar Compras"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96"
+        app:rippleColor="#F7567C"
+        app:strokeColor="#F7567C" />
+
+    <Button
+        android:id="@+id/editar_lista"
+        android:layout_width="125dp"
+        android:layout_height="56dp"
+        android:backgroundTint="#F7567C"
+        android:text="Editar Lista"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.055"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96"
+        app:rippleColor="#F7567C"
+        app:strokeColor="#F7567C" />
+
+    <com.example.ihc_navegador_de_compras_new.MapaView
+        android:id="@+id/mapaView"
+        android:layout_width="382dp"
+        android:layout_height="431dp"
+        android:background="#000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <TextView
+        android:id="@+id/produto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Nome do produto - Corredor N"
+        android:textColor="#F7567C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.675" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void openTelaListaActivity() {
-        Intent intent = new Intent(this, TelaListaActivity.class);
+        Intent intent = new Intent(this, TelaPesquisaActivity.class);
         startActivity(intent);
     }
 }
